@@ -1,0 +1,11 @@
+<p class="dgl-button" 
+[ngClass]="{
+  'primary': appearance === 'primary', 
+  'secondary': appearance === 'secondary',
+  'raised': appearance === 'raised',
+  'flat': appearance === 'flat',
+  'stroked': appearance === 'stroked'
+}" 
+(click)="handleClick()">
+ <ng-content></ng-content>
+</p>

@@ -1,0 +1,23 @@
+.dgl-button{
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+}
+.primary{
+    background-color: blue;
+    color: white;
+}
+.secondary{
+    background-color: green;
+    color: white;
+}
+.raised{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+.flat{
+    box-shadow: none;
+}
+.stroked{
+    background-color: transparent;
+    border: 1px solid black;
+}
