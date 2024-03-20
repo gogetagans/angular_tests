@@ -10,11 +10,16 @@ type Appearance = 'primary' | 'secondary' | 'raised' | 'flat' | 'stroked';
   imports: [CommonModule],
   standalone: true,
 })
+/**
+ * Represents a button component. 
+ */
 export class ButtonComponent {
   appearance: string = inject(new HostAttributeToken('appearance'), {optional: true}) || 'primary' as Appearance;
   onClick = output();
-  
 
+  /**
+   * Handles the click event of the button.
+   */
   handleClick(): void {
     this.onClick.emit();
   }

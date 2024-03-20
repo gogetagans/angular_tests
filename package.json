@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test--coverage": "ng test --code-coverage",
     "storybook": "ng run angular-tests:storybook",
     "build-storybook": "ng run angular-tests:build-storybook"
   },
