@@ -1,11 +1,10 @@
-<p class="dgl-button"
-[ngClass]="{
-  'primary': appearance === 'primary', 
-  'secondary': appearance === 'secondary',
-  'raised': appearance === 'raised',
-  'flat': appearance === 'flat',
-  'stroked': appearance === 'stroked'
-}" 
-(click)="handleClick()">
- <ng-content></ng-content>
-</p>
+<section *ngIf="user()" class="dgl-card">
+  <div class="dgl-card__avatar">{{user()?.name}}</div>
+  <div class="dgl-card__body">
+    <div class="dgl-card__body--title">{{user()?.name}}</div>
+    <div class="dgl-card__body--subtitle">{{user()?.company?.name}}</div>
+    <div class="dgl-card__body--email">{{user()?.email}}</div>
+    <div class="dgl-card__body--phone">{{user()?.phone}}</div>
+  </div>
+
+</section>

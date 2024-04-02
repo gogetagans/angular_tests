@@ -1,1 +1,5 @@
-<section></section>
+<section class="dgl-main">
+  <div *ngFor="let user of users$ | async">
+    <dgl-card [user]="user"></dgl-card>
+  </div>
+</section>

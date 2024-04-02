@@ -4,30 +4,31 @@ import { User } from 'models/user';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
+  private users$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  url = 'https://jsonplaceholder.typicode.com/users';
+  users: User[] = [];
+  filteredUsers: User[] = [];
+  constructor(private http: HttpClient) {
+    this.getUsersFromApi();
+  }
 
-constructor(private http: HttpClient) {
-  this.getUsersFromApi();
- }
+  getUsersFromApi(): void {
+    this.http.get<User[]>(this.url).subscribe((users) => {
+      this.users$.next(users);
+    });
+  }
 
-url = 'https://jsonplaceholder.typicode.com/users';
+  get getUsers$(): Observable<User[]> {
+    return this.users$.asObservable();
+  }
 
-users$ = new BehaviorSubject<User[]>([]);
-users = this.users$.asObservable();
-
-
-getUsersFromApi():void {
- this.http.get<User[]>(this.url).subscribe(users=> this.users$.next(users));
-}
-
-getUsers(): Observable<User[]>{ 
-  return this.users$.asObservable();
-}
-
-find(search: string): void{
-  const filteredUsers = this.users$.value.filter(user => user.name.includes(search));
-  this.users$.next(filteredUsers);
-}
+  findUser(search: string): void {
+    this.filteredUsers = this.users$
+      .getValue()
+      .filter(({ name }) => name.toLowerCase().includes(search.toLowerCase()));
+    this.users$.next(this.filteredUsers);
+  }
 }

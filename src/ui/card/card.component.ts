@@ -1,7 +1,7 @@
-import { NgClass } from '@angular/common';
-import { Component, HostAttributeToken, inject, output } from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
+import { Component, input} from '@angular/core';
+import { User } from 'models/user';
 
-type Appearance = 'primary' | 'secondary' | 'raised' | 'flat' | 'stroked';
 
 @Component({
   
@@ -9,19 +9,11 @@ type Appearance = 'primary' | 'secondary' | 'raised' | 'flat' | 'stroked';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgIf],
 })
-/**
- * Represents a card component. 
- */
-export default class CardComponent {
-  appearance: string = inject(new HostAttributeToken('appearance'), {optional: true}) || 'primary' as Appearance;
-  onClick = output();
 
-  /**
-   * Handles the click event of the card.
-   */
-  handleClick(): void {
-    this.onClick.emit();
-  }
+
+export default class CardComponent {
+  user = input<User>();
+ 
 }

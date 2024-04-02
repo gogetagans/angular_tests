@@ -1,0 +1,10 @@
+.dgl-main{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f1f1f1;
+    gap:20px;
+    width: 100%;
+}
