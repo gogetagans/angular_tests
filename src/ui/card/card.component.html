@@ -1,5 +1,7 @@
 <section *ngIf="user()" class="dgl-card">
-  <div class="dgl-card__avatar">{{user()?.name}}</div>
+  <div class="dgl-card__avatar">
+    <span class="dgl-card__avatar--text">{{user()?.name}}</span>
+  </div>
   <div class="dgl-card__body">
     <div class="dgl-card__body--title">{{user()?.name}}</div>
     <div class="dgl-card__body--subtitle">{{user()?.company?.name}}</div>
