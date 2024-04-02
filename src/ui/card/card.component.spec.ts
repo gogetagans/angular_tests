@@ -2,9 +2,7 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonModule } from '@angular/common';
-
-import { ButtonComponent } from './button.component';
+import ButtonComponent from './card.component';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -13,7 +11,7 @@ describe('ButtonComponent', () => {
   beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [],
-      imports: [CommonModule, ButtonComponent]
+      imports: [ButtonComponent]
     })
     .compileComponents();
   }));
@@ -32,47 +30,42 @@ describe('ButtonComponent', () => {
     expect(component.appearance).toBe('primary');
   });
 
-  it('should have the correct appearance property for secondary', () => {
+  it('should have the correct appearance class for secondary', () => {
     const fixture = TestBed.createComponent(ButtonComponent);
-    const app = fixture.componentInstance;
-    app.appearance = 'secondary';
+    const component = fixture.componentInstance;
+    component.appearance = 'secondary';
     fixture.detectChanges();  
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.secondary')).toBeTruthy();
-    expect(app.appearance).toBe('secondary');
   });
 
   
-  it('should have the correct appearance property for raised', () => {
+  it('should have the correct appearance class for raised', () => {
     const fixture = TestBed.createComponent(ButtonComponent);
-    const app = fixture.componentInstance;
-    app.appearance = 'raised';
+    const component = fixture.componentInstance;
+    component.appearance = 'raised';
     fixture.detectChanges();  
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.raised')).toBeTruthy();
-    expect(app.appearance).toBe('raised');
   });
 
  
-  it('should have the correct appearance property for flat', () => {
+  it('should have the correct appearance class for flat', () => {
     const fixture = TestBed.createComponent(ButtonComponent);
-    const app = fixture.componentInstance;
-    app.appearance = 'flat';
+    const component = fixture.componentInstance;
+    component.appearance = 'flat';
     fixture.detectChanges();  
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.flat')).toBeTruthy();
-    expect(app.appearance).toBe('flat');
   });
   
-   // do the same tests for stroked
-  it('should have the correct appearance property for stroked', () => {
+  it('should have the correct appearance class for stroked', () => {
     const fixture = TestBed.createComponent(ButtonComponent);
-    const app = fixture.componentInstance;
-    app.appearance = 'stroked';
+    const component = fixture.componentInstance;
+    component.appearance = 'stroked';
     fixture.detectChanges();  
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.stroked')).toBeTruthy();
-    expect(app.appearance).toBe('stroked');
   });
 
   it('should have the onClick event emitter', () => {

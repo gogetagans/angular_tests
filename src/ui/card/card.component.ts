@@ -1,24 +1,25 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, HostAttributeToken, inject, output } from '@angular/core';
 
 type Appearance = 'primary' | 'secondary' | 'raised' | 'flat' | 'stroked';
 
 @Component({
-  selector: 'dgl-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css'],
-  imports: [CommonModule],
+  
+  selector: 'dgl-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css'],
   standalone: true,
+  imports: [NgClass],
 })
 /**
- * Represents a button component. 
+ * Represents a card component. 
  */
-export class ButtonComponent {
+export default class CardComponent {
   appearance: string = inject(new HostAttributeToken('appearance'), {optional: true}) || 'primary' as Appearance;
   onClick = output();
 
   /**
-   * Handles the click event of the button.
+   * Handles the click event of the card.
    */
   handleClick(): void {
     this.onClick.emit();

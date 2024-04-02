@@ -1,0 +1,36 @@
+.dgl-button{
+    --background-color: blue;
+    --text-color: white;
+    --shadow: none;
+    --border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color:var(--background-color);
+    box-shadow: var(--shadow);
+    border: var(--border);
+    
+}
+.primary{
+    color: var(--text-color);
+}
+
+.secondary{
+    --background-color: green;
+    color: var(--text-color);
+}
+
+.raised{
+    --shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    --background-color: transparent;
+}
+
+.flat{
+    --background-color: transparent;
+}
+
+.stroked{
+    --border: 1px solid black;
+    --background-color: transparent
+}

@@ -1,0 +1,9 @@
+.dgl-nav{
+    height: 100vh;
+    background-color: grey;
+    padding-inline: 20px;
+
+    input{
+        margin-top: 40px;
+    }
+}
