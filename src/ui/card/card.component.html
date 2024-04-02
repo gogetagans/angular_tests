@@ -3,8 +3,12 @@
   <div class="dgl-card__body">
     <div class="dgl-card__body--title">{{user()?.name}}</div>
     <div class="dgl-card__body--subtitle">{{user()?.company?.name}}</div>
-    <div class="dgl-card__body--email">{{user()?.email}}</div>
-    <div class="dgl-card__body--phone">{{user()?.phone}}</div>
+    <div class="dgl-card__body--email">
+      <a [href]="'mailto:' + user()?.email">{{user()?.email}}</a>
+    </div>
+    <div class="dgl-card__body--phone">
+      <a [href]="'tel:' + user()?.phone">{{user()?.phone}}</a>
+    </div>
   </div>
 
 </section>
